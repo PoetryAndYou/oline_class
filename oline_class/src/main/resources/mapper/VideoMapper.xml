@@ -14,10 +14,64 @@
         SELECT * FROM VIDEO_BANNER ORDER BY WEIGHT ASC
 
     </select>
+    
+    <resultMap id="VideoDetailResultMap" type="Video">
 
-    <select id="findDetailById" resultType="Video">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="summary" jdbcType="VARCHAR" property="summary"/>
+        <result column="cover_img" jdbcType="VARCHAR" property="coverImg"/>
+        <result column="price" jdbcType="INTEGER" property="price"/>
+        <result column="point" jdbcType="DOUBLE" property="point"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
 
-        select * from video where video_id = #{videoId}
+        <collection property="chapterList" ofType="Chapter">
+            <id column="chapter_id" jdbcType="INTEGER" property="id"/>
+            <result column="chapter_ititle" jdbcType="VARCHAR" property="title"/>
+            <result column="ordered" jdbcType="INTEGER" property="ordered"/>
+            <result column="chapter_create_time" jdbcType="TIMESTAMP" property="createTime" />
+
+            <collection property="episodeList" ofType="Episode">
+                <id column="episode_id" jdbcType="INTEGER" property="id"/>
+                <result column="episode_title" jdbcType="VARCHAR" property="title"/>
+                <result column="episode_ordered" jdbcType="INTEGER" property="ordered"/>
+                <result column="play_url" jdbcType="VARCHAR" property="playUrl"/>
+                <result column="free" jdbcType="INTEGER" property="free"/>
+                <result column="num" jdbcType="INTEGER" property="num"/>
+                <result column="episode_create_time" jdbcType="TIMESTAMP" property="createTime" />
+            </collection>
+        </collection>
+
+    </resultMap>
+    <select id="findDetailById" resultMap="VideoDetailResultMap">
+
+        SELECT v.id,
+               v.title,
+               v.summary,
+               v.cover_img,
+               v.price,
+               v.create_time,
+               v.point,
+               c.id as chapter_id,
+               c.title as chapter_ititle,
+               c.ordered,
+               c.create_time as chapter_create_time,
+               e.create_time as episode_create_time,
+               e.id as episode_id,
+               e.title as episode_title,
+               e.ordered as episode_ordered,
+               e.free,
+               e.play_url,
+               e.num
+        FROM video v
+                 LEFT JOIN chapter c ON
+            c.video_id = v.id
+                 LEFT JOIN episode e ON
+            e.chapter_id = c.id
+        WHERE v.id = #{video_id}
+        ORDER BY c.ordered,
+                 e.num
 
     </select>
+
 </mapper>

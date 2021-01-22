@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * 公共的视频接口
+ * 公共的视频接口控制层
  */
 @RestController
 @RequestMapping("api/v1/pub/video")
@@ -34,20 +34,22 @@ public class VideoController {
 
     /**
      * 获取轮播图
+     *
      * @return
      */
     @GetMapping("list_banner")
-    public JsonData indexBanner(){
+    public JsonData indexBanner() {
         List<VideoBanner> bannerList = videoService.listBanner();
         return JsonData.buildSuccess(bannerList);
     }
 
     /**
      * 视频详情
+     *
      * @return
      */
     @GetMapping("find_detail_video")
-    public JsonData findDetailById(@RequestParam(value = "video_id", required = true) int videoId){
+    public JsonData findDetailById(@RequestParam(value = "video_id", required = true) int videoId) {
         Video video = videoService.findDetailById(videoId);
         return JsonData.buildSuccess(video);
     }

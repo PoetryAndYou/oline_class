@@ -1,6 +1,7 @@
 package com.yantumeijing.oline_class.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 章节对象
@@ -9,26 +10,25 @@ public class Chapter {
 
     private Integer id;
 
-    private Integer video_id;
+    private Integer videoId;
 
     private String title;
 
     private Integer ordered;
 
-    private Date create_time;
+    private Date createTime;
 
-    public Chapter() {
+    private List<Episode> episodeList;
+
+    public List<Episode> getEpisodeList() {
+        return episodeList;
     }
 
-    @Override
-    public String toString() {
-        return "Chapter{" +
-                "id=" + id +
-                ", video_id=" + video_id +
-                ", title='" + title + '\'' +
-                ", ordered=" + ordered +
-                ", create_time=" + create_time +
-                '}';
+    public void setEpisodeList(List<Episode> episodeList) {
+        this.episodeList = episodeList;
+    }
+
+    public Chapter() {
     }
 
     public Integer getId() {
@@ -39,12 +39,12 @@ public class Chapter {
         this.id = id;
     }
 
-    public Integer getVideo_id() {
-        return video_id;
+    public Integer getVideoId() {
+        return videoId;
     }
 
-    public void setVideo_id(Integer video_id) {
-        this.video_id = video_id;
+    public void setVideoId(Integer videoId) {
+        this.videoId = videoId;
     }
 
     public String getTitle() {
@@ -63,11 +63,23 @@ public class Chapter {
         this.ordered = ordered;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Chapter{" +
+                "id=" + id +
+                ", videoId=" + videoId +
+                ", title='" + title + '\'' +
+                ", ordered=" + ordered +
+                ", createTime=" + createTime +
+                ", episodeList=" + episodeList +
+                '}';
     }
 }

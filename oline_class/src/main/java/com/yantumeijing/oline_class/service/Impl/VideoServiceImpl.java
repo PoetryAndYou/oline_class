@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+/**
+ * 视频接口业务层
+ */
 @Service
 public class VideoServiceImpl implements VideoService {
 

@@ -1,6 +1,7 @@
 package com.yantumeijing.oline_class.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 视频对象
@@ -21,6 +22,16 @@ public class Video {
 
     private Double point;
 
+    private List<Chapter> chapterList;
+
+    public List<Chapter> getChapterList() {
+        return chapterList;
+    }
+
+    public void setChapterList(List<Chapter> chapterList) {
+        this.chapterList = chapterList;
+    }
+
     public Video() {
     }
 
@@ -34,6 +45,7 @@ public class Video {
                 ", price=" + price +
                 ", createTime=" + createTime +
                 ", point=" + point +
+                ", chapterList=" + chapterList +
                 '}';
     }
 

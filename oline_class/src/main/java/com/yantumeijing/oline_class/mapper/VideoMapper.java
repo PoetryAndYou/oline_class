@@ -3,6 +3,7 @@ package com.yantumeijing.oline_class.mapper;
 import com.yantumeijing.oline_class.domain.Video;
 import com.yantumeijing.oline_class.domain.VideoBanner;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -28,5 +29,5 @@ public interface VideoMapper {
      * @param videoId
      * @return
      */
-    Video findDetailById(int videoId);
+    Video findDetailById(@Param("video_id")int videoId);
 }
