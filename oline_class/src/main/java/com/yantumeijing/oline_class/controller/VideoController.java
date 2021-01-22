@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * 公共的视频接口
+ */
 @RestController
 @RequestMapping("api/v1/pub/video")
 public class VideoController {
