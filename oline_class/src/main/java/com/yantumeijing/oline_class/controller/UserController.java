@@ -20,7 +20,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
+    /**
+     * 注册
+     *
+     * @param userInfo
+     * @return
+     */
     @PostMapping("register")
     public JsonData register(@RequestBody Map<String, String> userInfo) {
         int rows = userService.save(userInfo);

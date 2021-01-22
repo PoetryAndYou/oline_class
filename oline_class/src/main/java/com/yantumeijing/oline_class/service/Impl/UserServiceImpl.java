@@ -11,6 +11,9 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * 用户业务层
+ */
 @Service
 public class UserServiceImpl implements UserService {
 

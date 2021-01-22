@@ -6,7 +6,19 @@ import java.util.Map;
 
 public interface UserService {
 
+    /**
+     * 通过手机号查询用户
+     *
+     * @param phone
+     * @return
+     */
     User findByPhone(String phone);
 
+    /**
+     * 保存用信息S
+     *
+     * @param userInfo
+     * @return
+     */
     int save(Map<String, String> userInfo);
 }
