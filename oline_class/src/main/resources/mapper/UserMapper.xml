@@ -20,6 +20,10 @@
         select * from user where phone = #{phone}
 
     </select>
+    <!--根据手机号和密码吗查找用户-->
+    <select id="findByPhoneAndPwd" resultType="User">
 
+        select * from user where  phone = #{phone} and pwd = #{pwd};
 
+    </select>
 </mapper>

@@ -1,7 +1,7 @@
 package com.yantumeijing.oline_class.mapper;
 
-import com.yantumeijing.oline_class.domain.Video;
-import com.yantumeijing.oline_class.domain.VideoBanner;
+import com.yantumeijing.oline_class.model.entity.Video;
+import com.yantumeijing.oline_class.model.entity.VideoBanner;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

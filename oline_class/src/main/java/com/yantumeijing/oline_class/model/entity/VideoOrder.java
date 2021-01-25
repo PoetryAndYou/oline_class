@@ -1,4 +1,4 @@
-package com.yantumeijing.oline_class.domain;
+package com.yantumeijing.oline_class.model.entity;
 
 import java.util.Date;
 

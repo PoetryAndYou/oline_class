@@ -1,7 +1,7 @@
 package com.yantumeijing.oline_class.service;
 
-import com.yantumeijing.oline_class.domain.Video;
-import com.yantumeijing.oline_class.domain.VideoBanner;
+import com.yantumeijing.oline_class.model.entity.Video;
+import com.yantumeijing.oline_class.model.entity.VideoBanner;
 
 import java.util.List;
 

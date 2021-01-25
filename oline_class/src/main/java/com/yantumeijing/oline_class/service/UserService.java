@@ -1,6 +1,6 @@
 package com.yantumeijing.oline_class.service;
 
-import com.yantumeijing.oline_class.domain.User;
+import com.yantumeijing.oline_class.model.entity.User;
 
 import java.util.Map;
 
@@ -15,10 +15,18 @@ public interface UserService {
     User findByPhone(String phone);
 
     /**
-     * 保存用信息S
+     * 保存用信息
      *
      * @param userInfo
      * @return
      */
     int save(Map<String, String> userInfo);
+
+    /**
+     * 登录
+     * @param phone
+     * @param pwd
+     * @return
+     */
+    String findByPhoneAndPwd(String phone, String pwd);
 }

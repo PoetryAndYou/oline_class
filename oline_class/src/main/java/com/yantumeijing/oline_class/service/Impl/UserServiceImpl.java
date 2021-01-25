@@ -1,9 +1,10 @@
 package com.yantumeijing.oline_class.service.Impl;
 
-import com.yantumeijing.oline_class.domain.User;
+import com.yantumeijing.oline_class.model.entity.User;
 import com.yantumeijing.oline_class.mapper.UserMapper;
 import com.yantumeijing.oline_class.service.UserService;
 import com.yantumeijing.oline_class.utils.CommontUtils;
+import com.yantumeijing.oline_class.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,17 @@ public class UserServiceImpl implements UserService {
             return userMapper.save(user);
         } else {
             return -1;
+        }
+    }
+
+    @Override
+    public String findByPhoneAndPwd(String phone, String pwd) {
+        User user = userMapper.findByPhoneAndPwd(phone, CommontUtils.MD5(pwd));
+        if(user != null){
+            String token = JWTUtils.geneJsonWebToken(user);
+            return token;
+        }else{
+            return null;
         }
     }
 

@@ -1,7 +1,7 @@
 package com.yantumeijing.oline_class.service.Impl;
 
-import com.yantumeijing.oline_class.domain.Video;
-import com.yantumeijing.oline_class.domain.VideoBanner;
+import com.yantumeijing.oline_class.model.entity.Video;
+import com.yantumeijing.oline_class.model.entity.VideoBanner;
 import com.yantumeijing.oline_class.mapper.VideoMapper;
 import com.yantumeijing.oline_class.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
