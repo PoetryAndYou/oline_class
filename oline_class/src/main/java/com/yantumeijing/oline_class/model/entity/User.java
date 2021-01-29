@@ -1,5 +1,8 @@
 package com.yantumeijing.oline_class.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jdk.nashorn.internal.ir.annotations.Ignore;
+
 import java.util.Date;
 
 /**
@@ -11,6 +14,8 @@ public class User {
 
     private String name;
 
+    //忽略
+    @JsonIgnore
     private String pwd;
 
     private String headImg;

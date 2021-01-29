@@ -39,12 +39,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public String findByPhoneAndPwd(String phone, String pwd) {
         User user = userMapper.findByPhoneAndPwd(phone, CommontUtils.MD5(pwd));
-        if(user != null){
+        if (user != null) {
             String token = JWTUtils.geneJsonWebToken(user);
             return token;
-        }else{
+        } else {
             return null;
         }
+    }
+
+    @Override
+    public User findUserInfoById(Integer userId) {
+        User user = userMapper.findUserInfoById(userId);
+        return user;
     }
 
     /**

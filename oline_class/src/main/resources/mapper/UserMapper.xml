@@ -6,11 +6,11 @@
     <insert id="save" parameterType="User">
 
         insert into user (name, pwd, head_img, phone, create_time)
-        values (#{name, jdbcType=VARCHAR},
-                #{pwd, jdbcType=VARCHAR},
-                #{headImg, jdbcType=VARCHAR},
-                #{phone, jdbcType=VARCHAR},
-                #{createTime, jdbcType=TIMESTAMP})
+        values (#{name},
+                #{pwd},
+                #{headImg},
+                #{phone},
+                #{createTime})
 
     </insert>
 
@@ -24,6 +24,12 @@
     <select id="findByPhoneAndPwd" resultType="User">
 
         select * from user where  phone = #{phone} and pwd = #{pwd};
+
+    </select>
+
+    <select id="findUserInfoById" resultType="User">
+
+        select * from user where id = #{userId}
 
     </select>
 </mapper>

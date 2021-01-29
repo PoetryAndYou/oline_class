@@ -24,9 +24,18 @@ public interface UserService {
 
     /**
      * 登录
+     *
      * @param phone
      * @param pwd
      * @return
      */
     String findByPhoneAndPwd(String phone, String pwd);
+
+    /**
+     * 通过id查询用户
+     *
+     * @param userId
+     * @return
+     */
+    User findUserInfoById(Integer userId);
 }

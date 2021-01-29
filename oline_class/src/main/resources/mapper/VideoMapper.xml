@@ -73,5 +73,10 @@
                  e.num
 
     </select>
+    <select id="findById" resultType="com.yantumeijing.oline_class.model.entity.Video">
+
+        select * from video where id = #{video_id}
+
+    </select>
 
 </mapper>

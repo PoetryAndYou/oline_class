@@ -23,6 +23,16 @@ public class VideoOrder {
 
     private Integer userId;
 
+    private String videoTitle;
+
+    public String getVideoTitle() {
+        return videoTitle;
+    }
+
+    public void setVideoTitle(String videoTitle) {
+        this.videoTitle = videoTitle;
+    }
+
     public VideoOrder() {
     }
 

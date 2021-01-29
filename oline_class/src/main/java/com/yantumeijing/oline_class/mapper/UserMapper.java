@@ -13,4 +13,6 @@ public interface UserMapper {
     int save(User user);
 
     User findByPhoneAndPwd(@Param("phone")String phone, @Param("pwd")String pwd);
+
+    User findUserInfoById(@Param("userId")Integer userId);
 }
