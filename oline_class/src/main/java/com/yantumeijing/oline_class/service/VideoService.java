@@ -4,6 +4,7 @@ import com.yantumeijing.oline_class.model.entity.Video;
 import com.yantumeijing.oline_class.model.entity.VideoBanner;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public interface VideoService {
 
@@ -17,7 +18,7 @@ public interface VideoService {
      * 获取轮播图
      * @return
      */
-    List<VideoBanner> listBanner();
+    List<VideoBanner> listBanner() throws ExecutionException;
 
     /**
      * 视频详情

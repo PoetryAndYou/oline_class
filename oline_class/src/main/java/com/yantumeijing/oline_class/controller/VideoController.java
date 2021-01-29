@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * 公共的视频接口控制层
@@ -38,7 +39,7 @@ public class VideoController {
      * @return
      */
     @GetMapping("list_banner")
-    public JsonData indexBanner() {
+    public JsonData indexBanner() throws ExecutionException {
         List<VideoBanner> bannerList = videoService.listBanner();
         return JsonData.buildSuccess(bannerList);
     }
