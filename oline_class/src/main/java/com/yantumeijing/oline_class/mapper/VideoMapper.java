@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * VideoMapper
  */
-public interface VideoMapper {
+public interface   VideoMapper {
 
     /**
      * 查询视频列表
