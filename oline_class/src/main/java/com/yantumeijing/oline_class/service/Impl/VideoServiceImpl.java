@@ -1,6 +1,7 @@
 package com.yantumeijing.oline_class.service.Impl;
 
 import com.yantumeijing.oline_class.config.CacheKeyMannger;
+import com.yantumeijing.oline_class.exception.YTException;
 import com.yantumeijing.oline_class.model.entity.Video;
 import com.yantumeijing.oline_class.model.entity.VideoBanner;
 import com.yantumeijing.oline_class.mapper.VideoMapper;
@@ -26,7 +27,21 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public List<Video> videoList() {
-        return videoMapper.videoList();
+        try {
+            Object videoListObj = baseCache.getTenMinuteCache().get(CacheKeyMannger.INDEX_VIDEO_LIST, () -> {
+                List<Video> videoList = videoMapper.videoList();
+                return videoList;
+            });
+            if (videoListObj instanceof List) {
+                List<Video> videoList = (List<Video>) videoListObj;
+                return videoList;
+            }
+        } catch (Exception e) {
+            throw new YTException(-1, "查询视频失败！");
+        }
+        //兜底数据，业务系统降级
+
+        return null;
     }
 
     @Override

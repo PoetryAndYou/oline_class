@@ -30,7 +30,7 @@ public class VideoController {
     @RequestMapping("list")
     public JsonData videoList() {
         List<Video> videos = videoService.videoList();
-        return JsonData.buildSuccess(videos);
+        return videos == null ? JsonData.buildError("查询失败") : JsonData.buildSuccess(videos);
     }
 
     /**
